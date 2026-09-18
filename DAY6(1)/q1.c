@@ -176,8 +176,6 @@ int main()
             totalCost += mst[i][j];
         }
     }
-
     printf("Total Weight of the Spanning Tree: %d\n", totalCost);
-
     return 0;
 }
