@@ -61,14 +61,11 @@ int main()
     scanf("%d", &n);
 
     printf("Enter elements:\n");
-
     for (i = 0; i < n; i++)
         scanf("%d", &a[i]);
 
     result = maxMin(a, 0, n - 1);
-
     printf("Maximum = %d\n", result.max);
     printf("Minimum = %d\n", result.min);
-
     return 0;
 }
