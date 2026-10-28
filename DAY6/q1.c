@@ -1,38 +1,27 @@
-// greedy techniques
+// fractional knapsack
 #include <stdio.h>
 #include <stdlib.h>
-
-// Structure declaration as per the assignment note
 struct ITEM {
     int item_id;
     double item_profit;
     double item_weight;
     double profit_weight_ratio;
 };
-
-// Function to heapify a subtree rooted with node i
 void heapify(struct ITEM arr[], int n, int i) {
     int smallest = i; // Initialize smallest as root
     int left = 2 * i + 1;
     int right = 2 * i + 2;
-
-    // For non-increasing order sorting, build a Min-Heap based on ratio
     if (left < n && arr[left].profit_weight_ratio < arr[smallest].profit_weight_ratio)
         smallest = left;
-
     if (right < n && arr[right].profit_weight_ratio < arr[smallest].profit_weight_ratio)
         smallest = right;
-
     if (smallest != i) {
         struct ITEM temp = arr[i];
         arr[i] = arr[smallest];
         arr[smallest] = temp;
-
         heapify(arr, n, smallest);
     }
 }
-
-// Function to perform heap sort to sort items in non-increasing order
 void heapSort(struct ITEM arr[], int n) {
     // Build min-heap
     for (int i = n / 2 - 1; i >= 0; i--) {
